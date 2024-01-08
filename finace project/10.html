@@ -1,0 +1,78 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Excel Sheet</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <h1>Generate HTML Page</h1>
+  <label for="inputDate">Enter Date:</label>
+  <input type="date" id="inputDate" onchange="toggleButtons()">
+  <button id="generateButton" onclick="generatePage()" style="display: none;">Generate Page</button>
+  <button id="previousButton" onclick="generatePreviousPage()" style="display: none;">Previous Data</button>
+
+  <div id="generatedContent"></div>
+
+  <script src="10.js"></script>
+  <script>
+    function toggleButtons() {
+      const inputDate = new Date(document.getElementById('inputDate').valueAsDate); // Changed to valueAsDate for better date handling
+
+      if (!inputDate) return; // Added a check if no date is selected
+      
+      const currentDate = new Date();
+
+      const generateButton = document.getElementById('generateButton');
+      const previousButton = document.getElementById('previousButton');
+
+      if (inputDate >= currentDate || inputDate.toDateString() === currentDate.toDateString()) { // Added condition for today or future date
+        generateButton.style.display = 'inline-block';
+        previousButton.style.display = 'none';
+      } else {
+        generateButton.style.display = 'none';
+        previousButton.style.display = 'inline-block';
+      }
+    }
+  </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Excel Sheet</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+  <h1>Generate HTML Page</h1>
+  <label for="inputMonth">Select Month:</label>
+  <input type="month" id="inputMonth" onchange="toggleButtons()">
+  <button id="generateButton" onclick="generatePage()" style="display: none;">Generate Page</button>
+  <button id="previousButton" onclick="generatePreviousPage()" style="display: none;">Previous Data</button>
+
+  <div id="generatedContent"></div>
+
+  <script src="10.js"></script>
+  <script>
+    function toggleButtons() {
+      const inputMonth = document.getElementById('inputMonth').value;
+
+      if (!inputMonth) return;
+
+      const currentMonth = new Date().toISOString().slice(0, 7);
+
+      const generateButton = document.getElementById('generateButton');
+      const previousButton = document.getElementById('previousButton');
+
+      if (inputMonth >= currentMonth) {
+        generateButton.style.display = 'inline-block';
+        previousButton.style.display = 'none';
+      } else {
+        generateButton.style.display = 'none';
+        previousButton.style.display = 'inline-block';
+      }
+    }
+  </script>
+</body>
+</html>
